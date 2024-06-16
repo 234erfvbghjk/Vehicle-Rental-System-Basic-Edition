@@ -1,0 +1,16 @@
+const db = require("../config/database");
+const { DataTypes } = require("sequelize");
+
+const Category = db.define("Category", {
+    cid: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true
+    },
+    name: {
+        type: DataTypes.STRING(10),
+        unique: true
+    },
+});
+
+module.exports = Category;

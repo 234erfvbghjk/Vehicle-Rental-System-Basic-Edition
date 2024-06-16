@@ -1,0 +1,17 @@
+// const { log } = require('debug/src/browser');
+var express = require('express');
+var router = express.Router();
+const Design = require('../models/designCarModel ');
+
+/* GET users listing. */
+router.get('/', async function (req, res, next) {
+  const row = await Design.findAll();
+  res.json(row)
+});
+
+router.post('/', async (req, res) => {
+  const rows = await Design.create(req.body);
+  res.json(rows);
+});
+
+module.exports = router;
